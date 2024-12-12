@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from "./card.module.css"
 const Card = ({name, id, gender, image, specie }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles["card-container"]}>
         <b>Name {name}</b>
         <p>ID: {id}</p>
         <p>Gender: {gender}</p>
