@@ -1,0 +1,21 @@
+.pagination-container {
+   border-bottom: 1px solid black;
+   display: flex;
+}
+.page-number {
+   margin: 10px;
+   cursor: pointer;
+   border: 0.5px solid #000000;
+   border-radius: 100%;
+   background-color: cadetblue;
+   min-width: 30px;
+   min-height: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.page-number:hover {
+   color: #FFFFFF;
+   transform: scale(1.05);
+   transition: 300ms;
+}

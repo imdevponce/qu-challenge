@@ -3,10 +3,13 @@ import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import Card from "@/components/Card";
 import SearchBar from "@/components/SearchBar";
+import Pagination from "@/components/Pagination";
+const mockPages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 export default function Home() {
   const [characters, setCharacters] = useState([]);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
   useEffect(() => {
     const getAndSetCharacters = async (page) => {
       const characters = await fetch(
@@ -15,8 +18,8 @@ export default function Home() {
       const data = await characters.json();
       setCharacters(data.results);
     };
-    getAndSetCharacters(1);
-  }, []);
+    getAndSetCharacters(page);
+  }, [page]);
   const renderCharacters = (characters) => {
     if (!characters) {
       return null;
@@ -50,6 +53,9 @@ export default function Home() {
       setFilteredCharacters([]);
     }
   };
+  const onHandlePage = (page) => {
+    setPage(page);
+  };
   return (
     <div className={styles.page}>
       <SearchBar
@@ -64,6 +70,7 @@ export default function Home() {
           filteredCharacters.length > 0 ? filteredCharacters : characters
         )
       )}
+      <Pagination pages={mockPages} onClick={onHandlePage} />
     </div>
   );
 }
