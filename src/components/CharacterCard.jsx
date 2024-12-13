@@ -5,16 +5,16 @@ const CharacterCard = ({ name, id, gender, image, specie }) => {
   return (
     <div className={styles["card-container"]}>
       <p>
-        <b>Name</b> {name}
+        <strong>Name</strong> {name}
       </p>
       <p>
-        <b>ID:</b> {id}
+        <strong>ID:</strong> {id}
       </p>
       <p>
-        <b>Gender:</b> {gender}
+        <strong>Gender:</strong> {gender}
       </p>
       <p>
-        <b>Specie:</b> {specie}
+        <strong>Specie:</strong> {specie}
       </p>
       <Image src={image} alt={name} width={200} height={200} />
     </div>

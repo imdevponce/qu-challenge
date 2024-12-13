@@ -7,8 +7,9 @@
   min-height: 98vh;
 }
 .characters-container {
-  width: 500px;
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 400px;
 }
