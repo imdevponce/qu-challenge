@@ -18,20 +18,25 @@ const useRenderCharacters = () => {
     search,
     filteredCharacters,
     data,
+    sortBy,
   }) => {
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
-
-    const charactersToRender =
+    let characters =
+      filteredCharacters?.length > 0 ? filteredCharacters : data?.results;
+    if (sortBy === "name") {
+      characters = [...characters].sort((a, b) => {
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase());
+      });
+    }
+    const charactersContent =
       search && filteredCharacters?.length === 0 ? (
         <p>Character not found</p>
       ) : (
-        renderCharacters(
-          filteredCharacters?.length > 0 ? filteredCharacters : data?.results
-        )
+        renderCharacters(characters)
       );
 
-    return charactersToRender;
+    return charactersContent;
   };
   return { renderCharactersContent };
 };
