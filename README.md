@@ -1,5 +1,7 @@
 # Code challenge - Ismael Ponce
 
+> **Note**: This `.env` file is only included for practice purposes in this exercise. **In real projects**, you should never push `.env` files to public or private repositories, as they often contain sensitive information (such as API keys, database credentials, etc.). Instead, use tools like `.gitignore` to prevent these files from being pushed to GitHub.
+
 ## How to run this project?
 
 run
