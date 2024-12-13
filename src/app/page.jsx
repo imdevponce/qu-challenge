@@ -55,8 +55,18 @@ export default function Home() {
       setFilteredCharacters([]);
     }
   };
-  const onHandlePage = (page) => {
+  const onHandleSetPage = (page) => {
     setPage(page);
+  };
+  const onHandlePrev = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+  const onHandleNext = () => {
+    if (page < mockPages.length) {
+      setPage(page + 1);
+    }
   };
   return (
     <div className={styles.page}>
@@ -72,7 +82,13 @@ export default function Home() {
           filteredCharacters.length > 0 ? filteredCharacters : characters
         )
       )}
-      <Pagination pages={mockPages} onClick={onHandlePage} />
+      <Pagination
+        pages={mockPages}
+        onClick={onHandleSetPage}
+        selectedPage={page}
+        onHandlePrev={onHandlePrev}
+        onHandleNext={onHandleNext}
+      />
     </div>
   );
 }

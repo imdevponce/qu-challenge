@@ -1,6 +1,7 @@
 .pagination-container {
    border-bottom: 1px solid black;
    display: flex;
+   align-items: center;
 }
 .page-number {
    margin: 10px;
@@ -13,9 +14,21 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   list-style-type: none;
 }
 .page-number:hover {
    color: #FFFFFF;
+   transform: scale(1.05);
+   transition: 300ms;
+}
+.selected-page {
+   background-color: #ff8a30;
+   color: #FFFFFF;
+}
+.previous, .next {
+   cursor: pointer;
+}
+.previous:hover, .next:hover {
    transform: scale(1.05);
    transition: 300ms;
 }
