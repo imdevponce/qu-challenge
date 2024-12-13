@@ -8,21 +8,15 @@ import usePagination from "@/hooks/usePagination";
 import useRenderCharacters from "@/hooks/useRenderCharacters";
 
 export default function Home() {
-  const {
-    page,
-    onHandleSetPage,
-    onHandlePrev,
-    onHandleNext,
-    allPages,
-    clearSearch,
-  } = usePagination(10);
+  const { page, onHandleSetPage, onHandlePrev, onHandleNext, allPages } =
+    usePagination(10);
   const { data, isLoading, error } = useFetch({
     url: `${process.env.NEXT_PUBLIC_API_URL}?page=${page}`,
   });
 
   const { filteredCharacters, search, onHandleSearch } = useFilterCharacters({
     data,
-    clearSearch,
+    page,
   });
 
   const { renderCharactersContent } = useRenderCharacters();

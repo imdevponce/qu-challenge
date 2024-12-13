@@ -1,8 +1,12 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 
-const useFilterCharacters = ({ data }) => {
+const useFilterCharacters = ({ data, page }) => {
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [search, setSearch] = useState("");
+  useEffect(() => {
+    setFilteredCharacters([]);
+    setSearch("");
+  }, [page]);
   const onHandleSearch = (e) => {
     const search = e.target.value;
     setSearch(search);
