@@ -4,22 +4,24 @@ import { useEffect, useState } from "react";
 import Card from "@/components/Card";
 import SearchBar from "@/components/SearchBar";
 import Pagination from "@/components/Pagination";
+import useFetch from "@/hooks/useFetch";
 const mockPages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 export default function Home() {
-  const [characters, setCharacters] = useState([]);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  useEffect(() => {
-    const getAndSetCharacters = async (page) => {
-      const characters = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}?page=${page}`
-      );
-      const data = await characters.json();
-      setCharacters(data.results);
-    };
-    getAndSetCharacters(page);
-  }, [page]);
+  const { data, isLoading, error } = useFetch({
+    url: `${process.env.NEXT_PUBLIC_API_URL}?page=${page}`,
+  });
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>{error}</p>;
+  }
+  const characters =
+    filteredCharacters.length > 0 ? filteredCharacters : data.results;
   const renderCharacters = (characters) => {
     if (!characters) {
       return null;
