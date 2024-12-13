@@ -2,6 +2,8 @@
    border-bottom: 1px solid black;
    display: flex;
    align-items: center;
+   justify-content: center;
+   width: 100%;
 }
 .page-number {
    margin: 10px;

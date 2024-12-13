@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import styles from "./card.module.css";
-const Card = ({ name, id, gender, image, specie }) => {
+import styles from "./character-card.module.css";
+const CharacterCard = ({ name, id, gender, image, specie }) => {
   return (
     <div className={styles["card-container"]}>
       <p>
@@ -21,4 +21,4 @@ const Card = ({ name, id, gender, image, specie }) => {
   );
 };
 
-export default Card;
+export default CharacterCard;

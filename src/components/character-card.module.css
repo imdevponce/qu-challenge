@@ -1,0 +1,25 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+.card-container {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    min-width: 400px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    background-color: #eeeeee;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.card-container:hover{
+    transform: scale(1.02);
+    opacity: 1;
+    transition: 300ms;
+}

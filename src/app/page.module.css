@@ -1,8 +1,14 @@
 .page {
   display: flex;  
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  padding: 30px;
+  padding: 20px;
+  min-height: 98vh;
 }
-
+.characters-container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
